@@ -1,0 +1,23 @@
+﻿@{
+
+}
+
+@model List<Book>
+
+<h2>The Book Store</h2>
+
+@foreach (Book b in Model)
+{
+    <h3>@b.Title</h3>
+
+    <ul>
+        <li>Author: @b.Author </li>
+        <li>Publisher: @b.Publisher</li>
+        <li>ISBN: @b.Isbn</li>
+        <li>Classification/Category: @b.Classification/@b.Category</li>
+        <li>Page Count: @b.PageCount</li>
+        <li>Price: @b.Price</li>
+    </ul>
+
+    <br />
+}
