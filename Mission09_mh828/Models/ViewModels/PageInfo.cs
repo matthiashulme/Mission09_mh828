@@ -7,6 +7,7 @@ namespace Mission09_mh828.Models.ViewModels
 {
     public class PageInfo
     {
+        // Initializing Variables
         public int TotalNumBooks { get; set; }
         public int BooksPerPage { get; set; }
         public int CurrentPage { get; set; }

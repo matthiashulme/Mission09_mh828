@@ -19,7 +19,7 @@ namespace Mission09_mh828.Models
         {
         }
 
+        // DbSet of Books Initiation
         public DbSet<Book> Books { get; set; }
-
     }
 }

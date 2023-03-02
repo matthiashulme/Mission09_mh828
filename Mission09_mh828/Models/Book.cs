@@ -10,6 +10,7 @@ namespace Mission09_mh828.Models
 {
     public partial class Book
     {
+        // Book Class Variables
         [Key]
         [Required]
         public int BookId { get; set; }
