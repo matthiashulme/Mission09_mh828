@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mission09_mh828.Models;
+using Mission09_mh828.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,24 @@ namespace Mission09_mh828.Controllers
         {
             repo = temp;
         }
-        public IActionResult Index()
+        public IActionResult Index(int pageNum = 1)
         {
-            var returnList = repo.Books.ToList();
+            int pageSize = 10;
+
+            var returnList = new BooksViewModel
+            {
+                Books = repo.Books
+                .OrderBy(b => b.Title)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
 
             return View(returnList);
         }
