@@ -9,6 +9,7 @@ namespace Mission09_mh828.Infrastructure
 {
     public static class SessionExtensions
     {
+        // Creating Json strings to be able to work in Sessions
         public static void SetJson(this ISession session, string key, object value)
         {
             session.SetString(key, JsonSerializer.Serialize(value));
