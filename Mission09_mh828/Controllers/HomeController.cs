@@ -20,7 +20,7 @@ namespace Mission09_mh828.Controllers
         }
 
         // Index Route and Model Passing
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             // pageSize Variable Initialization
             int pageSize = 10;
@@ -29,6 +29,7 @@ namespace Mission09_mh828.Controllers
             {
                 // Grabbing Books from DB for each page
                 Books = repo.Books
+                .Where(b => b.Category == category || category == null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
@@ -36,7 +37,9 @@ namespace Mission09_mh828.Controllers
                 // Creating PageInfo fo BooksViewModel
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks = (category == null 
+                    ? repo.Books.Count() 
+                    : repo.Books.Where(x => x.Category == category).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }
