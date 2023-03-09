@@ -18,7 +18,7 @@ namespace Mission09_mh828.Components
 
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedType = RouteData?.Values["category"];
+            ViewBag.SelectedCategory = RouteData?.Values["category"];
 
             var categories = repo.Books
                 .Select(x => x.Category)
