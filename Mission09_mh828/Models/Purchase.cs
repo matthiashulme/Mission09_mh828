@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mission09_mh828.Models
 {
+    // Purchase Model Attributes,  Bindings, and Error Messages
     public class Purchase
     {
         [Key]

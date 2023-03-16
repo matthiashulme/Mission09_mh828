@@ -6,7 +6,7 @@ namespace Mission09_mh828.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            /*migrationBuilder.CreateTable(
                 name: "Books",
                 columns: table => new
                 {
@@ -24,7 +24,7 @@ namespace Mission09_mh828.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.BookId);
-                });
+                }); */
 
             migrationBuilder.CreateTable(
                 name: "Purchases",

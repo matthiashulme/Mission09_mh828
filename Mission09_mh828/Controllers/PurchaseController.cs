@@ -9,6 +9,7 @@ namespace Mission09_mh828.Controllers
 {
     public class PurchaseController : Controller
     {
+        // Repository, cart, and constructor
         private IPurchaseRepository repo { get; set; }
         private Cart cart { get; set; }
         public PurchaseController(IPurchaseRepository temp, Cart c)
@@ -17,12 +18,14 @@ namespace Mission09_mh828.Controllers
             cart = c;
         }
 
+        // Get Branch for Checkout
         [HttpGet]
         public IActionResult Checkout()
         {
             return View(new Purchase());
         }
 
+        // Post Branch for Checkout
         [HttpPost]
         public IActionResult Checkout(Purchase p)
         {

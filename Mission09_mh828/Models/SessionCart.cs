@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Mission09_mh828.Models
 {
+    // Inherit from Cart Class
     public class SessionCart : Cart
     {
         public static Cart GetCart(IServiceProvider services)
@@ -25,18 +26,21 @@ namespace Mission09_mh828.Models
         [JsonIgnore]
         public ISession Session { get; set; }
 
+        // Override Cart Add Item for Session Help
         public override void AddItem(Book book, int qty)
         {
             base.AddItem(book, qty);
             Session.SetJson("Cart", this);
         }
 
+        // Override Cart Remove Item for Session Help
         public override void RemoveItem(Book book)
         {
             base.RemoveItem(book);
             Session.SetJson("Cart", this);
         }
 
+        // Override Cart Clear for Session Help
         public override void ClearCart()
         {
             base.ClearCart();

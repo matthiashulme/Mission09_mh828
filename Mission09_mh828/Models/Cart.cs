@@ -10,6 +10,7 @@ namespace Mission09_mh828.Models
     {
         public List<CartLineItem> Items { get; set; } = new List<CartLineItem>();
 
+        // Add an Item to the cart
         public virtual void AddItem(Book book, int qty)
         {
             CartLineItem line = Items
@@ -30,16 +31,19 @@ namespace Mission09_mh828.Models
             }
         }
 
+        //Remove a single item from the cart
         public virtual void RemoveItem(Book book)
         {
             Items.RemoveAll(x => x.Book.BookId == book.BookId);
         }
 
+        // Clear the Cart
         public virtual void ClearCart()
         {
             Items.Clear();
         }
 
+        // Calculate the Total
         public double CalculateTotal()
         {
             double sum = Items.Sum(x => x.Quantity * x.Book.Price);
